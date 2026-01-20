@@ -3,40 +3,64 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 
-st.title("Oil Spill Detection System")
+st.title("🛢️ Oil Spill Detection System")
 
-# Load the trained Keras classification model
-# Using 'my_classification_model.keras' as it's the recommended new format
+# Load trained Keras classification model
 model = load_model("my_classification_model.keras")
 
-file = st.file_uploader("Upload Satellite Image")
+file = st.file_uploader("Upload Satellite Image", type=["jpg", "jpeg", "png"])
 
 if file:
-    # Read the image as a byte stream and then convert to numpy array
-    file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8);
-    img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR) # Load as color image for display
+    # Read image bytes
+    file_bytes = np.asarray(bytearray(file.read()), dtype=np.uint8)
+    img = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
 
     if img is None:
-        st.error("Could not load image. Please ensure it's a valid image file.")
+        st.error("Could not load image. Please upload a valid image file.")
     else:
         st.image(img, caption="Uploaded Image", use_column_width=True)
 
-        # Preprocess image for model prediction
-        processed_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) # b. Convert to grayscale
-        processed_img = cv2.resize(processed_img, (256, 256)) # c. Resize to (256, 256)
-        processed_img = processed_img / 255.0 # d. Normalize pixel values
-        processed_img = np.expand_dims(processed_img, axis=-1) # e. Add channel dimension (256, 256, 1)
+        # =========================
+        # 🔹 PREPROCESSING PIPELINE
+        # =========================
 
-        # 4. Expand dimensions for batch prediction (1, 256, 256, 1)
-        processed_img_batch = np.expand_dims(processed_img, axis=0)
+        # 1. Convert to grayscale
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-        # 5. Make prediction to get 'Oil Spill' probability
-        prediction = model.predict(processed_img_batch)[0][0] # Get the single scalar prediction
+        # 2. STRONG DENOISING (Non-Local Means)
+        denoised = cv2.fastNlMeansDenoising(
+            gray,
+            h=15,          # Filter strength (10–20 recommended)
+            templateWindowSize=7,
+            searchWindowSize=21
+        )
 
-        # 6. Determine the predicted class label
+        # 3. Resize to model input size
+        resized = cv2.resize(denoised, (256, 256))
+
+        # 4. Normalize pixel values
+        normalized = resized / 255.0
+
+        # 5. Add channel + batch dimensions
+        processed_img = np.expand_dims(normalized, axis=-1)
+        processed_img = np.expand_dims(processed_img, axis=0)
+
+        # =========================
+        # 🔹 MODEL PREDICTION
+        # =========================
+
+        prediction = model.predict(processed_img)[0][0]
+
         predicted_class = "Oil Spill" if prediction >= 0.5 else "Non Oil Spill"
         confidence = prediction if predicted_class == "Oil Spill" else (1 - prediction)
 
-        # 7. Display the predicted class and confidence
+        # =========================
+        # 🔹 OUTPUT
+        # =========================
+
+        st.subheader("🔍 Prediction Result")
         st.write(f"**Predicted Class:** {predicted_class}")
         st.write(f"**Confidence ({predicted_class}):** {confidence:.4f}")
+
+        # Optional: Show denoised image
+        st.image(denoised, caption="Denoised Image (Used for Prediction)", use_column_width=True)
