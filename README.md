@@ -140,8 +140,7 @@ Step-by-Step Process
 ## Project Demo Video
 
 demo.mp4
-https://drive.google.com/file/d/17GV7PZycf-jVTdf2pymb_EtHgEKsLCId/view?usp=drive_link
-
+! [THIS IS A VIDEO ] (https://github.com/springboardmentor112r-Agri/Oil_Spill_Detection-/blob/f8f975983bd43a80ece21e84a0e4598b91759d11/oil%20spill%20detection%20demo.mp4)
 
 ## 🚀 Deployment Link
 
