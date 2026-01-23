@@ -28,7 +28,7 @@ The primary goals of this project are:
 | Attribute | Details |
 |---------|--------|
 Dataset Name | Sentinel-1 SAR Oil Spill Dataset |
-Source | Kaggle |
+Source | Zenodo |
 Image Type | Synthetic Aperture Radar (SAR) |
 Image Channels | Single-channel (Grayscale) |
 Classes | Oil Spill, Non-Spill, Look-Alike |
@@ -51,7 +51,11 @@ Oil_Spill_Detection/
 ├── models/
 │ └── unet_oil_spill_model.h5
 │
-├── app/
+├── screenshots
+│   ├── sample_input_image.png
+│   ├── predicted_mask.png
+│   └── overlay_visualization.png
+├── app.py
 │ └── (Deployment files – Module 6 to be added)
 │
 ├── README.md
@@ -161,21 +165,63 @@ The trained model is saved separately for reuse in:
 
 ---
 
-## 🚀 Module 6: Deployment (Planned)
+🚀 Module 6: Deployment Status
 
-> ⚠️ **Note:** Module 6 is **not yet implemented**.
+⚠️ Status: Attempted & Documented
 
-Planned deployment features include:
+A Streamlit-based web application (app.py) was developed to:
 
-- Streamlit-based web application
-- User interface for uploading satellite images
-- Real-time oil spill segmentation prediction
-- Visualization of results within the web app
+Upload SAR images
+
+Run trained model inference
+
+Display predicted masks and overlays
+
+Deployment Challenges
+
+TensorFlow / Keras version incompatibility
+
+Legacy model serialization issues
+
+To avoid modifying finalized training artifacts close to submission, deployment was documented but not finalized.
+
+▶️ How to Run the Project (Local)
+Step 1: Install Dependencies
+pip install -r requirements.txt
+Step 2: Run Streamlit App
+python -m streamlit run app.py
+
+Step 3: Test the Model
+
+Upload a SAR image
+
+View predicted oil spill segmentation
+
+
 
 This module will be added in a future update.
 
 ---
 
+🎯 Project Goals
+
+Automate oil spill detection from satellite imagery
+
+Reduce dependency on manual monitoring
+
+Improve environmental surveillance efficiency
+
+Demonstrate real-world deep learning application in remote sensing
+
+🧠 Key Learnings
+
+SAR image characteristics & challenges
+
+Dice-based metrics for segmentation tasks
+
+End-to-end ML pipeline design
+
+Practical deployment constraints in ML systems
 ## 🛠️ Technology Stack
 
 | Category | Tools |
@@ -202,7 +248,23 @@ Version Control | Git & GitHub |
 ## 👤 Author
 
 **Piyush Ranjan**  
-B.Tech – Computer Science Engineering  
+
+🙏 Acknowledgments
+
+Infosys Springboard Mentor Program
+
+Project Mentor for guidance & review
+
+Zenodo community for dataset resources
+
+Open-source ML ecosystem
+
+🎉 Final Notes
+
+This project demonstrates a complete applied machine learning workflow, from satellite data analysis to model evaluation and visualization.
+
+It highlights technical depth, engineering discipline, and real-world constraints, making it a strong and practical machine learning project.
+ 
 
 ---
 
