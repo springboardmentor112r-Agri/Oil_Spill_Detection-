@@ -78,9 +78,8 @@ AI-OIL-SPILL-DETECTION/
 ├── complete_pipeline.py          # Self-contained code
 
 └── results/           # Prediction screenshots
-```
 
- 🔹 Preprocessing Steps
+🔹 Preprocessing Steps
 
 To improve model performance, the following preprocessing steps were applied:
 
