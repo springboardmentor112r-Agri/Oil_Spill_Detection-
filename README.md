@@ -148,9 +148,8 @@ The trained model is deployed as a simple web application where users can upload
 
 
 🔗 **Live Deployment:**
-https://b26b09086234e9e191.gradio.live
-https://b26b09086234e9e191.gradio.live
 
+👉 Open Demo
 
 
 ---
