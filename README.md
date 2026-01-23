@@ -146,10 +146,11 @@ demo.mp4
 
 The trained model is deployed as a simple web application where users can upload satellite images and view oil spill detection results.
 
-https://colab.research.google.com/drive/1ww0ao174sZblrWA3KPGFCugg7jeS25-3#scrollTo=C4Yet8A0djfN
 
 🔗 **Live Deployment:**
-https://85aec187af7e77d118.gradio.live/
+https://b26b09086234e9e191.gradio.live
+
+
 ---
 📈 Performance Metrics
 Metric	    Score	   Status
