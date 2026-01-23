@@ -149,7 +149,7 @@ The trained model is deployed as a simple web application where users can upload
 
 
 🔗 **Live Deployment:**
-<a href="" target="_blank">🧪 Try Demo Live</a>
+<a href="https://6e281f822ffc30ef0f.gradio.live/" target="_blank">🧪 Try Demo Live</a>
 
 
 ---
