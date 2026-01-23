@@ -14,6 +14,7 @@ Objectives
 → Achieve production-ready metrics like IoU >0.76 and Dice >0.85 using lightweight U-Net models.
 
 → Enable real-time monitoring via Google Colab pipelines for quick training and deployment.
+<img width="1156" height="376" alt="Image" src="https://github.com/user-attachments/assets/bb117278-8b70-4da6-aa30-44228ddc2d9c" />
 ​
 
 Key Features
