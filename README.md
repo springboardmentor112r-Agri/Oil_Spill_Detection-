@@ -96,6 +96,9 @@ Validation: IoU/Dice production metrics
 Visualization: 2x6 prediction grids
 Deployment: Single-image inference
 
+![SAR image](<img width="1156" height="376" alt="image" src="https://github.com/user-attachments/assets/ee1a70e2-188a-4c03-a917-9584cae159cc" />
+)
+
 Step-by-Step Process
 
    Upload: SAR images + ground truth masks via Colab files.upload()
