@@ -143,11 +143,10 @@ demo.mp4
 
 The trained model is deployed as a simple web application where users can upload satellite images and view oil spill detection results.
 
-https://huggingface.co/spaces/DharshiniRamachandran/oil-spill-detection/blob/main/Copy%20of%20GRADIO%20APP.ipynb
+https://colab.research.google.com/drive/1ww0ao174sZblrWA3KPGFCugg7jeS25-3#scrollTo=C4Yet8A0djfN
 
 🔗 **Live Deployment:**
-https://c22afe968ade898dea.gradio.live/
-
+https://85aec187af7e77d118.gradio.live/
 ---
 📈 Performance Metrics
 Metric	    Score	   Status
