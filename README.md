@@ -95,7 +95,7 @@ Training: U-Net encoder-decoder optimization
 Validation: IoU/Dice production metrics
 Visualization: 2x6 prediction grids
 Deployment: Single-image inference
-<img width="1156" height="376" alt="Screenshot 2026-01-23 104755" src="https://github.com/user-attachments/assets/5e231c33-a691-4a89-bd42-24fe1442d78f" />
+
 
 
 Step-by-Step Process
@@ -135,7 +135,7 @@ Step-by-Step Process
 
 
 ---
-<img width="1156" height="376" alt="Image" src="https://github.com/user-attachments/assets/0d8748e2-269c-4fb1-98b6-44447f9208fa" />
+<img width="1870" height="889" alt="Image" src="https://github.com/user-attachments/assets/ff2b21ee-67a7-4cde-9c86-06bb737181c2" />
 ## Project Demo Video
 
 
