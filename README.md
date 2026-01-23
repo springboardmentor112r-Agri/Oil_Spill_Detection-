@@ -144,13 +144,12 @@ demo.mp4
 [https://github.com/springboardmentor112r-Agri/Oil_Spill_Detection-/blob/f8f975983bd43a80ece21e84a0e4598b91759d11/oil%20spill%20detection%20demo.mp4
 ](https://github.com/springboardmentor112r-Agri/Oil_Spill_Detection-/blob/f8f975983bd43a80ece21e84a0e4598b91759d11/oil%20spill%20detection%20demo.mp4)
 ## 🚀 Deployment Link
-https://huggingface.co/spaces/DharshiniRamachandran/oil-spill-detection/blob/main/Copy%20of%20GRADIO%20APP.ipynb
 https://f7f65591deb7c63f1c.gradio.live
 The trained model is deployed as a simple web application where users can upload satellite images and view oil spill detection results.
 
 
 🔗 **Live Deployment:**
-<a href="https://b26b09086234e9e191.gradio.live/" target="_blank">🧪 Try Demo Live</a>
+<a href="" target="_blank">🧪 Try Demo Live</a>
 
 
 ---
