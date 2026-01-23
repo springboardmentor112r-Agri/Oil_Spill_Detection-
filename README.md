@@ -43,6 +43,7 @@ Key Features
 
  Self-contained pipeline - runs anywhere
 ---
+<img width="1156" height="376" alt="Image" src="https://github.com/user-attachments/assets/7c532010-53b3-4279-99e6-78d001508eaf" />
 
 📊 Dataset Information
 
