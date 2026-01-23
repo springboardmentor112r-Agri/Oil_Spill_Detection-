@@ -135,8 +135,7 @@ Step-by-Step Process
 
 
 ---
-<img width="1156" height="376" alt="Image" src="https://github.com/user-attachments/assets/bb117278-8b70-4da6-aa30-44228ddc2d9c" />
-
+<img width="1156" height="376" alt="Image" src="https://github.com/user-attachments/assets/0d8748e2-269c-4fb1-98b6-44447f9208fa" />
 ## Project Demo Video
 
 demo.mp4
