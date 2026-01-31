@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oil Spill Detection | AI Segmentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #111827;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        .upload-box {
+            border: 2px dashed #374151;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .upload-box:hover {
+            border-color: #3b82f6;
+            background: rgba(59,130,246,0.05);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-label {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #1f2937;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: background 0.3s;
+        }
+
+        .upload-label:hover {
+            background: #374151;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .predict-btn {
+            margin-top: 25px;
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .predict-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+        }
+
+        .status {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #93c5fd;
+        }
+
+        .result-section {
+            margin-top: 40px;
+            display: none;
+        }
+
+        .result-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .result-image img {
+            max-width: 100%;
+            border-radius: 14px;
+            border: 2px solid #374151;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Oil Spill Detection</h1>
+        <p>
+            Upload a satellite image and let our deep learning model automatically
+            detect and segment oil spill regions using computer vision.
+        </p>
+    </div>
+
+    <div class="upload-box">
+        <label for="imageInput" class="upload-label">
+            📂 Select Image
+        </label>
+        <input type="file" id="imageInput" accept="image/*">
+        <div class="file-name" id="fileName">No file selected</div>
+
+        <button class="predict-btn" onclick="uploadImage()">
+            🚀 Run Oil Spill Detection
+        </button>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <div class="result-section" id="resultSection">
+        <h2>Prediction Result</h2>
+        <div class="result-image">
+            <img id="resultImage" src="">
+        </div>
+    </div>
+
+    <footer>
+        Built with Deep Learning · U-Net Segmentation · FastAPI Backend
+    </footer>
+
+</div>
+
+<script>
+    const imageInput = document.getElementById("imageInput");
+    const fileName = document.getElementById("fileName");
+    const statusText = document.getElementById("status");
+    const resultSection = document.getElementById("resultSection");
+    const resultImage = document.getElementById("resultImage");
+
+    imageInput.addEventListener("change", () => {
+        fileName.innerText = imageInput.files.length
+            ? imageInput.files[0].name
+            : "No file selected";
+    });
+
+    async function uploadImage() {
+        if (!imageInput.files.length) {
+            statusText.innerText = "Please select an image first.";
+            return;
+        }
+
+        statusText.innerText = "Running prediction...";
+        resultSection.style.display = "none";
+
+        const formData = new FormData();
+        formData.append("file", imageInput.files[0]);
+
+        try {
+            const response = await fetch("http://127.0.0.1:8000/predict", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            resultImage.src = "data:image/png;base64," + data.image;
+            resultSection.style.display = "block";
+            statusText.innerText = "Prediction completed successfully.";
+
+        } catch (error) {
+            statusText.innerText = "Error connecting to server.";
+        }
+    }
+</script>
+
+</body>
+</html>
