@@ -8,7 +8,7 @@ A **U-Net–style Convolutional Neural Network (CNN)** is used to perform pixel-
 
 ---
 
-![Frontend Demo](results/interfrence.png)
+![Frontend Demo](images/interfrence.png)
 
 ---
 
