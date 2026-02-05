@@ -107,7 +107,7 @@ Rather than performing image-level classification, the model generates pixel-lev
 
 <b>Training Highlights:</b>
 
-<ul> <li>Loss Function: Dice / Binary Cross-Entropy</li> <li>Metrics: Accuracy, IoU, Dice Score</li> <li>Hardware: Google Colab GPU</li> </ul>
+<ul> <li>Loss Function: Dice Coefficient : 0.72</li> <li>Metrics: Accuracy : 88.2%,  IoU : 0.56,  Recall : 0.61 </li> <li>Hardware: Google Colab GPU</li> </ul>
 
 <h2>📊 Results & Visualizations</h2>
 
