@@ -1,0 +1,65 @@
+# ===========================
+# Oil Spill Detection Project
+# ===========================
+
+# Dataset folder (1.3GB - too large for git)
+# Users should download from Kaggle as per README
+data/
+*/data/
+**/data/
+
+# Model weights - Using Git LFS for large files
+# .pth files are tracked by Git LFS (see .gitattributes)
+# Other model formats (if not using LFS)
+*.pt
+*.h5
+*.pkl
+*.ckpt
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS generated files
+*.log
+.directory
+
+# Streamlit cache
+.streamlit/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
